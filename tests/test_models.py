@@ -12,7 +12,7 @@ class TestInputImage(TestCase):
         self.obj1 = InputImage.objects.create(title='test_name_1')
         self.obj2 = InputImage.objects.create(title='test_name_2', is_processed=True)
 
-    def test_InputImage_model_creation(self):
+    def test_inputimage_model_creation(self):
 
         test_name_1 = InputImage.objects.get(title='test_name_1')
         self.assertEqual(test_name_1.title, self.obj1.title)
@@ -29,10 +29,10 @@ class TestInputVideo(TestCase):
 
     def setUp(self):
         super(TestInputVideo, self).setUp()
-        self.obj1=InputVideo.objects.create(title='test_name_1')
-        self.obj2=InputVideo.objects.create(title='test_name_2', is_processed=True)
+        self.obj1 = InputVideo.objects.create(title='test_name_1')
+        self.obj2 = InputVideo.objects.create(title='test_name_2', is_processed=True)
 
-    def test_InputVideo_model_creation(self):
+    def test_inputvideo_model_creation(self):
 
         test_name_1 = InputVideo.objects.get(title='test_name_1')
         self.assertEqual(test_name_1.title, self.obj1.title)
@@ -52,8 +52,8 @@ class TestInputEmbed(TestCase):
         self.id1 = uuid.uuid4().hex
         self.id2 = uuid.uuid4().hex
 
-        self.obj1=InputEmbed.objects.create(title='test_name_1', id=self.id1, fileurl='test_path_1')
-        self.obj2=InputEmbed.objects.create(title='test_name_2', id=self.id2, fileurl='test_path_2')
+        self.obj1 = InputEmbed.objects.create(title='test_name_1', id=self.id1, fileurl='test_path_1')
+        self.obj2 = InputEmbed.objects.create(title='test_name_2', id=self.id2, fileurl='test_path_2')
 
     def test_model_creation(self):
 
@@ -73,11 +73,8 @@ class TestNameSuggested(TestCase):
     def setUp(self):
         super(TestNameSuggested, self).setUp()
 
-        self.embed=InputEmbed.objects.create(title='test_name_1', id=uuid.uuid4().hex, fileurl='test_path_1')
-
-
-        self.obj1=NameSuggested.objects.create(suggested_name=self.embed.title, feedback=self.embed)
-
+        self.embed = InputEmbed.objects.create(title='test_name_1', id=uuid.uuid4().hex, fileurl='test_path_1')
+        self.obj1 = NameSuggested.objects.create(suggested_name=self.embed.title, feedback=self.embed)
 
     def test_model_creation(self):
 
@@ -92,8 +89,7 @@ class TestSimilarFaceInImage(TestCase):
 
     def setUp(self):
         super(TestSimilarFaceInImage, self).setUp()
-        self.obj1=SimilarFaceInImage.objects.create(title='test_title')
-
+        self.obj1 = SimilarFaceInImage.objects.create(title='test_title')
 
     def test_model_creation(self):
 
